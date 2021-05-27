@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-
 import './Signup.css';
+import axios from 'axios';
+
 function Signup(props) {
     const [phone, setPhone] = useState();
     const [pw, setPw] = useState();
@@ -35,7 +36,19 @@ function Signup(props) {
                                onChange={(e)=>setName(e.target.value)}/>
                 </div>            {/* 한글 이름에 대한 유효성 검사 */}
             </form>
-            <div className="input"><Button variant="outlined" color="primary">Submit</Button></div>
+            <div className="input">
+                <Button 
+                    variant="outlined"
+                    color="primary"
+                    onClick={axios.post('http://localhost:8000/users/signup',
+                                {
+                                    phone: {phone},
+                                    pw: {pw},
+                                    name: {name}
+                                })}
+                    >가입하기
+                </Button>
+            </div>
         </div>
     );
 }
