@@ -4,11 +4,26 @@ import Button from '@material-ui/core/Button';
 import './Signup.css';
 import axios from 'axios';
 
-function Signup(props) {
+function Signup({history}) {
     const [phone, setPhone] = useState();
-    const [pw, setPw] = useState();
-    const [pw2, setPw2] = useState();
+    const [password, setPw] = useState();
+    const [password2, setPw2] = useState();
     const [name, setName] = useState();
+
+    function registerUser(e){
+        e.preventDefault();
+        axios.post('http://localhost:8000/membership/users/signup/',
+                                {
+                                    phone,
+                                    name,
+                                    password
+                                })
+        .then(res=>{
+            console.log(res)
+        });
+        // history.push('/');
+                            
+    }
     return (
         <div className="Signup">
             <h1>SignUp</h1>
@@ -36,16 +51,11 @@ function Signup(props) {
                                onChange={(e)=>setName(e.target.value)}/>
                 </div>            {/* 한글 이름에 대한 유효성 검사 */}
             </form>
-            <div className="input">
-                <Button 
+            <div>
+                <Button className="input"
                     variant="outlined"
                     color="primary"
-                    onClick={axios.post('http://localhost:8000/users/signup',
-                                {
-                                    phone: {phone},
-                                    pw: {pw},
-                                    name: {name}
-                                })}
+                    onClick={registerUser}
                     >가입하기
                 </Button>
             </div>
