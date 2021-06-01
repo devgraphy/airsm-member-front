@@ -28,6 +28,7 @@
   color: #61dafb;
 }
 
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +36,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.Custom_appbar{
+  background: linear-gradient(45deg, #2196F3 30%, #21CBF3 90%);
 }
