@@ -12,7 +12,7 @@ function Signup({history}) {
 
     function registerUser(e){
         e.preventDefault();
-        axios.post('http://localhost:8000/membership/users/signup/',
+        axios.post('http://13.208.94.244:8000/membership/users/signup/',
                                 {
                                     phone,
                                     name,

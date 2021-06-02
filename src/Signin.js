@@ -16,7 +16,7 @@ export default function Signin(props) {
         const password = props.password;
         console.log(phone);
         console.log(password);
-        axios.post('http://localhost:8000/membership/signin/',
+        axios.post('http://13.208.94.244:8000/membership/signin/',
             {
                 phone,
                 password
@@ -28,7 +28,7 @@ export default function Signin(props) {
                 props.setPhone(res.data.phone);
                 props.setName(res.data.name);
                 props.setPoints(res.data.points);
-                axios.get('http://localhost:8000/membership/rank/')
+                axios.get('http://13.208.94.244:8000/membership/rank/')
                     .then(res=>{
                         props.setRank(res.data);
                         console.log(res.data);

@@ -39,7 +39,8 @@ export default function Ranking(props) {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>NAME</TableCell>
+            <TableCell>Phone Number</TableCell>
+            <TableCell align="center">Name</TableCell>
             <TableCell align="right">Total Points</TableCell>
           </TableRow>
         </TableHead>
@@ -47,7 +48,8 @@ export default function Ranking(props) {
           
           {props.rank.map((row) => (
             <TableRow key={row.phone}>
-              <TableCell>{row.name}</TableCell>
+              <TableCell>{row.phone}</TableCell>
+              <TableCell align="center">{row.name}</TableCell>
               <TableCell align="right">{row.points}</TableCell>
             </TableRow>
           ))}
