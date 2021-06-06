@@ -48,7 +48,9 @@ export default function App(props){
         />
       }/>
       
-      <Route path="/signup" component={Signup}/>
+      <Route path="/signup" render={routeProps=><Signup
+        {...routeProps}
+      />}/>
     </BrowserRouter>
   );
 }
