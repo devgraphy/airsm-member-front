@@ -13,7 +13,7 @@ function Signup(props) {
 
     function registerUser(e){
         e.preventDefault();
-        if(phone.length > 7 & name.length > 0 & password.length > 3 * password.length > 3){
+        if(phone.length > 7 & name.length > 0 & password.length > 3 & password2.length > 3){
             if(password === password2){
                 axios.post('http://localhost:8000/membership/users/signup/',
                                 {
