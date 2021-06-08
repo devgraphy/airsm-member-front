@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 import './Signup.css';
 import axios from 'axios';
 
-function Signup({history}) {
+function Signup(props) {
     const [phone, setPhone] = useState();
     const [password, setPw] = useState();
     const [password2, setPw2] = useState();
@@ -20,8 +20,9 @@ function Signup({history}) {
                                 })
         .then(res=>{
             console.log(res)
+            props.history.push('/');
         });
-        // history.push('/');
+        
                             
     }
     return (
@@ -55,7 +56,7 @@ function Signup({history}) {
                 <Button className="input"
                     variant="outlined"
                     color="primary"
-                    onClick={registerUser}
+                    onClick={(e)=>registerUser(e)}
                     >가입하기
                 </Button>
             </div>
